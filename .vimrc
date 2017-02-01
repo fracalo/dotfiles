@@ -135,7 +135,13 @@ set wildmenu
 " Automatically re-read the file if it has changed
 set autoread
 
-let mapleader = ',' 
+" space as leader rocks
+nnoremap <Space> <Nop>
+let mapleader = "\<Space>"
+
+" easy save file
+nmap <leader>w :w<cr>
+
 " To open a new empty buffer
 nmap <leader>T :enew<cr>
 " Move to the next buffer
@@ -154,9 +160,15 @@ nmap <silent> <leader>th :cal ToggleSelected(0)<cr>
 vmap <silent> <leader>th :cal ToggleSelected(1)<cr>
 
 " Split the window using some nice shortcuts
-nmap <leader>s<bar> :vsplit<cr>
-nmap <leader>s- :split<cr>
-nmap <leader>s? :map <leader>s<cr>
+nmap <leader><bar> :vsplit<cr>
+nmap <leader>- :split<cr>
+" nmap <leader>s? :map <leader>s<cr>
+
+" use <C + h j k l keys to move through windows
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 " Unhighlight the last search pattern on Enter
 nn <silent> <cr> :nohlsearch<cr><cr>
@@ -168,8 +180,6 @@ imap <M-BS> <esc>vBc
 imap <C-P> <up>
 imap <C-N> <down>
 
-" Non quitting analog of ZZ
-nmap zz :w<cr>
 
 " When pushing j/k on a line that is wrapped, it navigates to the same line,
 " just to the expected location rather than to the next line
@@ -183,10 +193,10 @@ map <up> <nop>
 map <down> <nop>
 
 " Map Ctrl+V to paste in Insert mode
-imap <C-V> <C-R>*
+imap <C-V> <C-R>0
 
 " Map jk to jump out of Insert mode
-imap jk <ESC>
+" imap jk <ESC> - using caplock now
 
 " Map Ctrl+C to copy in Visual mode
 vmap <C-C> "+y
@@ -246,10 +256,15 @@ nmap <leader>bs :CtrlPMRU<cr>
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 " Show hidden files by default
 let g:ctrlp_show_hidden = 1
-" }}}
+
+" set starting directory as file location
+let g:ctrlp_working_path_mode = 'a'
+"}}}
 
 " NERDTree settings ---- {{{
 nmap <leader>nt :NERDTreeToggle<cr>
+nmap <F2> :NERDTree
+" leaving the command for NERDTree open on purpose
 " }}}
 
 " UltiSnips ----- {{{

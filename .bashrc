@@ -128,6 +128,14 @@ if [ -f ~/.bash_git_aliases ]; then
 fi
 
 # start off tmux by default
-if command -v tmux>/dev/null; then
-  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
-fi
+#if command -v tmux>/dev/null; then
+#  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
+#fi
+
+# a little script for switching esc and caplock
+#if [ -f ~/.xmodmapscript ]; then
+#    . ~/.xmodmapscript
+#fi
+# currently using dconf-tools because the above method lags on escape
+
+
