@@ -65,7 +65,7 @@ local BLUE="\[\033[0;34m\]"
 local CYAN="\[\033[0;36m\]"
 local GRAY="\[\033[0;37m\]"
 local MAGENTA="\[\033[0;35m\]"
-local YELLOW="\[\033[1;33m\]"
+local YELLOW="\[\033[0;33m\]"
 export PS1="${GREEN}\u${YELLOW}@${MAGENTA}\h ${YELLOW}\w${GRAY}
 $ "
 }
@@ -128,6 +128,14 @@ if [ -f ~/.bash_git_aliases ]; then
 fi
 
 # start off tmux by default
-if command -v tmux>/dev/null; then
-  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
-fi
+#if command -v tmux>/dev/null; then
+#  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
+#fi
+
+# a little script for switching esc and caplock
+#if [ -f ~/.xmodmapscript ]; then
+#    . ~/.xmodmapscript
+#fi
+# currently using dconf-tools because the above method lags on escape
+
+
