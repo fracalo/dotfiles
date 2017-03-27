@@ -1,10 +1,3 @@
-" execute pathogen#infect()
-" set nocompatible              " be iMproved, required  default in neovim
-" filetype off                  " required for vundle
-" Load vim-plug
-"if empty(glob("~/.local/share/nvim/site/autoload/plug.vim"))
-"    execute '!curl -fLo ~/.local/share/nvim/site/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
-" endif
 call plug#begin('~/.config/nvim/plugged')
 
   
@@ -27,30 +20,6 @@ call plug#begin('~/.config/nvim/plugged')
 
 call plug#end()
 
-" set the runtime path to include Vundle and initialize
-" set rtp+=~/.vim/bundle/Vundle.vim
-" call vundle#begin()
-"Plugin 'VundleVim/Vundle.vim'
-"
-"Plugin 'ctrlpvim/ctrlp.vim'
-"Plugin 'scrooloose/nerdtree'
-"
-"Plugin 'vim-syntastic/syntastic'
-"" check out pangloss vim and neomake
-"" Plugin 'pangloss/vim-javascript'
-"
-"Plugin 'sirver/ultisnips'
-"Plugin 'vim-airline/vim-airline'
-"Plugin 'vim-airline/vim-airline-themes'
-"Plugin 'tpope/vim-fugitive'
-"Plugin 'digitaltoad/vim-pug'
-"Plugin 'Valloric/YouCompleteMe'
-"
-"" local ultisnips
-"Plugin 'file:///home/tronki/.vim/bundle/mysnips'
-"
-"call vundle#end()            " required
-"filetype plugin indent on    " required for vundle
 
 set t_Co=256
 syntax enable
