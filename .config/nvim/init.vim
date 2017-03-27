@@ -1,27 +1,56 @@
 " execute pathogen#infect()
-set nocompatible              " be iMproved, required
-filetype off                  " required
+" set nocompatible              " be iMproved, required  default in neovim
+" filetype off                  " required for vundle
+" Load vim-plug
+"if empty(glob("~/.local/share/nvim/site/autoload/plug.vim"))
+"    execute '!curl -fLo ~/.local/share/nvim/site/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+" endif
+call plug#begin('~/.config/nvim/plugged')
+
+  
+  Plug 'ctrlpvim/ctrlp.vim'
+  Plug 'scrooloose/nerdtree'
+  
+  Plug 'vim-syntastic/syntastic'
+  " check out pangloss vim and neomake
+  " Plug 'pangloss/vim-javascript'
+  
+  Plug 'sirver/ultisnips'
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+  Plug 'tpope/vim-fugitive'
+  Plug 'digitaltoad/vim-pug'
+  Plug 'Valloric/YouCompleteMe'
+  
+  " local ultisnips
+  " Plug '/.vim/bundle/mysnips' " this is lost...
+
+call plug#end()
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'sirver/ultisnips'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'tpope/vim-fugitive'
-Plugin 'digitaltoad/vim-pug'
-Plugin 'Valloric/YouCompleteMe'
-
-" local ultisnips
-Plugin 'file:///home/tronki/.vim/bundle/mysnips'
-
-call vundle#end()            " required
-filetype plugin indent on    " required
+" set rtp+=~/.vim/bundle/Vundle.vim
+" call vundle#begin()
+"Plugin 'VundleVim/Vundle.vim'
+"
+"Plugin 'ctrlpvim/ctrlp.vim'
+"Plugin 'scrooloose/nerdtree'
+"
+"Plugin 'vim-syntastic/syntastic'
+"" check out pangloss vim and neomake
+"" Plugin 'pangloss/vim-javascript'
+"
+"Plugin 'sirver/ultisnips'
+"Plugin 'vim-airline/vim-airline'
+"Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'tpope/vim-fugitive'
+"Plugin 'digitaltoad/vim-pug'
+"Plugin 'Valloric/YouCompleteMe'
+"
+"" local ultisnips
+"Plugin 'file:///home/tronki/.vim/bundle/mysnips'
+"
+"call vundle#end()            " required
+"filetype plugin indent on    " required for vundle
 
 set t_Co=256
 syntax enable
@@ -30,7 +59,6 @@ colorscheme badwolf
 set number " line numbers 
 set hidden " when a buffer is hidden it doesn't get closed
 
-set backupcopy=yes " prevents safewrite feature for --watch rollup option
 " Set foldmethod ----------------- {{{
 augroup filetype_vim
   autocmd!
@@ -88,21 +116,21 @@ set shiftwidth=2
 set expandtab
 
 " Default utility folders -------------- {{{
+" let prefix = $HOME.'/.local/share/nvim/' " this setting depends on if nvim or vim
 function CreateUtilFolders(...)
     for d in a:000
-        if !isdirectory($HOME.'/'.d)
-           call mkdir($HOME.'/'.d, "p")
+        if !isdirectory($HOME.'/.config/nvim/'.d)
+           call mkdir($HOME.'/.config/nvim/'.d, "p")
         endif
     endfor
 endfunction
 
-call CreateUtilFolders('/.vim/undo', '/.vim/swap', '/.vim/backup')
-" }}}
+call CreateUtilFolders('undo/', 'swap/', 'backup/')
 
 " Turn on persistent undo
 " Thanks, Mr Wadsten: github.com/mikewadsten/dotfiles/
 if has('persistent_undo')
-    set undodir=~/.vim/undo//
+    set undodir=~/.config/nvim/undo//
     set undofile
     set undolevels=1000
     set undoreload=10000
@@ -112,14 +140,16 @@ set completeopt+=longest,menuone,preview
 " Use backups
 " Source:
 "   http://stackoverflow.com/a/15317146
+set backupcopy=yes " prevents safewrite feature for --watch rollup option
 set backup
 set writebackup
-set backupdir=~/.vim/backup//
-
+set backupdir=~/.config/nvim/backup//
 " Use a specified swap folder
 " Source:
 "   http://stackoverflow.com/a/15317146
-set directory=~/.vim/swap//
+set directory=~/.config/nvim/swap//
+" }}}
+
 " Show two lines for the status line
 set laststatus=2
 
