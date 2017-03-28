@@ -1,12 +1,12 @@
+" plug init {{{
 call plug#begin('~/.config/nvim/plugged')
-
   
   Plug 'ctrlpvim/ctrlp.vim'
   Plug 'scrooloose/nerdtree'
   
-  Plug 'vim-syntastic/syntastic'
-  " check out pangloss vim and neomake
-  " Plug 'pangloss/vim-javascript'
+  "  Plug 'vim-syntastic/syntastic'
+
+  Plug 'neomake/neomake'
   
   Plug 'sirver/ultisnips'
   Plug 'vim-airline/vim-airline'
@@ -15,11 +15,12 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'digitaltoad/vim-pug'
   Plug 'Valloric/YouCompleteMe'
   
+  Plug 'hhsnopek/vim-sugarss'
   " local ultisnips
   " Plug '/.vim/bundle/mysnips' " this is lost...
 
 call plug#end()
-
+"}}}
 
 set t_Co=256
 syntax enable
@@ -28,7 +29,7 @@ colorscheme badwolf
 set number " line numbers 
 set hidden " when a buffer is hidden it doesn't get closed
 
-" Set foldmethod ----------------- {{{
+" Set foldmethod {{{
 augroup filetype_vim
   autocmd!
   autocmd FileType vim setlocal foldmethod=marker
@@ -41,8 +42,6 @@ set dictionary+=/usr/share/dict/words
 " The default 20 isn't nearly enough
 set history=9999
 
-" Show the numbers on the left of the screen
-set number
 
 " Show the column/row
 set ruler
@@ -71,20 +70,18 @@ autocmd GUIEnter * set visualbell t_vb=
 " Use smarter defaults
 set smartindent
 set smarttab
-
 " Use autoindenting
 set autoindent
 
-" The tabstop look best at 4 spacing
+" The tabstop look best at 2 spacing
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 
-" I have been converted to the dark side, I will use spaces to indent code
-" from here on out
+" spaces to indent from here on out
 set expandtab
 
-" Default utility folders -------------- {{{
+" Default utility folders {{{
 " let prefix = $HOME.'/.local/share/nvim/' " this setting depends on if nvim or vim
 function CreateUtilFolders(...)
     for d in a:000
@@ -203,7 +200,7 @@ vmap <C-C> "+y
 " Add paste shortcut
 nmap <leader>P "+p
 
-" airline settings ----- {{{
+" airline settings  {{{
 " let g:airline#extensions#tabline#enabled = 1
 " let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#left_sep = ' '
@@ -218,30 +215,34 @@ let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 " }}}
 
-" syntastic settings -------- {{{
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_loc_list_height = 5
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
-let g:syntastic_javascript_checkers = ['eslint']
-
-let g:syntastic_error_symbol = '❌'
-let g:syntastic_style_error_symbol = '⁉️'
-let g:syntastic_warning_symbol = '⚠️'
-let g:syntastic_style_warning_symbol = '💩'
-
-highlight link SyntasticErrorSign SignColumn
-highlight link SyntasticWarningSign SignColumn
-highlight link SyntasticStyleErrorSign SignColumn
-highlight link SyntasticStyleWarningSign SignColumn
+" syntastic settings (disabled) {{{
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_loc_list_height = 5
+"let g:syntastic_auto_loc_list = 0
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 1
+"let g:syntastic_javascript_checkers = ['eslint']
+"
+"let g:syntastic_error_symbol = '❌'
+"let g:syntastic_style_error_symbol = '⁉️'
+"let g:syntastic_warning_symbol = '⚠️'
+"let g:syntastic_style_warning_symbol = '💩'
+"
+"highlight link SyntasticErrorSign SignColumn
+"highlight link SyntasticWarningSign SignColumn
+"highlight link SyntasticStyleErrorSign SignColumn
+"highlight link SyntasticStyleWarningSign SignColumn
 " }}}
 
-" CtrlP settings ------- {{{
+" neomake and eslint {{{  
+let g:neomake_javascript_enabled_makers = ['eslint']
+autocmd! BufWritePost * Neomake"}}}
+
+" CtrlP settings {{{
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/](\.(git|hg|svn)|\_site|node_modules)$',
   \ 'file': '\v\.(exe|so|dll|class|png|jpg|jpeg)$',
@@ -260,14 +261,14 @@ let g:ctrlp_show_hidden = 1
 let g:ctrlp_working_path_mode = 'a'
 "}}}
 
-" NERDTree settings ---- {{{
+" NERDTree settings {{{
 nmap <leader>nt :NERDTreeToggle<cr>
 nmap <F2> :NERDTree
 " leaving the command for NERDTree open on purpose
 " }}}
 
-" UltiSnips ----- {{{
-let g:UltiSnipsSnippetsDirectories=['~/.vim/UltiSnips']
+" UltiSnips {{{
+let g:UltiSnipsSnippetsDirectories=['~/.vim/UltiSnips'] " lost
 let g:UltiSnipsExpandTrigger           = '<c-k>'
 let g:UltiSnipsJumpForwardTrigger      = '<c-k>'
 let g:UltiSnipsJumpBackwardTrigger     = '<s-c-k>'
