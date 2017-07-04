@@ -188,14 +188,9 @@ map <left> :bp<cr>
 map <up> <nop>
 map <down> <nop>
 
-" Map Ctrl+V to paste in Insert mode
-imap <C-V> <C-R>0
-
 " Map jk to jump out of Insert mode
 " imap jk <ESC> - using caplock now
 
-" Map Ctrl+C to copy in Visual mode
-vmap <C-C> "+y
 
 " Add paste shortcut
 nmap <leader>P "+p
