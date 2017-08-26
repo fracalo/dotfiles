@@ -15,7 +15,7 @@ DOTFILE_DIR_LEN=${#DOTFILE_DIR_STR}
 
 rotate() {
   
-  if [ ! -L $HOME$1 ] || [ $(readlink -f $HOME$1) != $DOTFILE_DIR$1 ]; then
+  if [ ! -L $HOME$1 ] || [ $(greadlink -f $HOME$1) != $DOTFILE_DIR$1 ]; then
   # do rotation
     for i in {8..0}; do
       if [ -f $HOME$1.bak.$i ]; then
