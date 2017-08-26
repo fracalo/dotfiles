@@ -1,10 +1,13 @@
-#!/usr/bin/env bash
+#!/usr/local/bin/bash
 
 # .dotfiles
 # this is a minimal script for symlinking files in .dotfile dir
 # to the appropiate location
 
-SCRIPT_PATH=$(readlink -f ${BASH_SOURCE[0]})
+#SCRIPT_PATH=$(readlink -f ${BASH_SOURCE[0]}) on osx this don't work
+# so you'll need to install coreutils  (which give mac Gnu coreutilities such as readlink)
+# g as GNU !!
+SCRIPT_PATH=$(greadlink -f ${BASH_SOURCE[0]})
 DOTFILE_DIR=`dirname $SCRIPT_PATH`
 DOTFILE_DIR_STR=$DOTFILE_DIR
 DOTFILE_DIR_LEN=${#DOTFILE_DIR_STR}
@@ -26,6 +29,7 @@ rotate() {
   fi
 }
 
+echo find ${DOTFILE_DIR} ! -path ${DOTFILE_DIR}  ! -name '*.sh' ! -regex ".*/.git.*" -print0
 while read -rd ''; do
     REL_PATH=${REPLY:$DOTFILE_DIR_LEN}
     if [ -d $REPLY ]; then
