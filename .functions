@@ -171,3 +171,6 @@ function nullify() {
 }
 
 
+function hello(){
+  echo "hell you"
+}

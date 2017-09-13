@@ -127,6 +127,7 @@ if [ -f ~/.bash_git_aliases ]; then
     . ~/.bash_git_aliases
 fi
 
+
 # start off tmux by default
 #if command -v tmux>/dev/null; then
 #  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
