@@ -27,7 +27,6 @@ alias gstd='git stash drop'
 
 # ----------------------
 # Git Functions
-# ciaone
 # ----------------------
 # Git log find by commit message
 function glf() { git log --all --grep="$1"; }
