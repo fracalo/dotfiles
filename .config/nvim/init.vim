@@ -234,8 +234,11 @@ let g:airline_right_sep = ''
 " }}}
 
 " neomake and eslint {{{  
+" let g:neomake_javascript_eslint_exe = $PWD .'/node_modules/.bin/eslint'
+" let g:neomake_verbose=3    
 let g:neomake_javascript_enabled_makers = ['eslint']
-autocmd! BufWritePost * Neomake"}}}
+autocmd! BufWritePost * Neomake
+"}}}
 
 " CtrlP settings {{{
 let g:ctrlp_custom_ignore = {

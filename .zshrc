@@ -143,3 +143,4 @@ SPACESHIP_VI_MODE_COLOR=purple
 #enabling vi mode here
 spaceship_vi_mode_enable
 
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
