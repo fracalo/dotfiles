@@ -123,8 +123,8 @@ export PATH="$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 #export JAVA_OPTS="$JAVA_OPTS -Dhttp.proxyHost=proxy -Dhttp.proxyPort=port -Dhttps.proxyHost=proxy -Dhttps.proxyPort=port"
 
 # some git aliases taken from https://jonsuh.com/blog/git-command-line-shortcuts
-if [ -f ~/.bash_git_aliases ]; then
-    . ~/.bash_git_aliases
+if [ -f ~/.git_aliases ]; then
+    . ~/.git_aliases
 fi
 
 # start off tmux by default
