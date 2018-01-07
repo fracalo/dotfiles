@@ -147,3 +147,6 @@ spaceship_vi_mode_enable
 
 
 source "/home/frank/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
+
+# adding some git aliases
+[ -f "$HOME/.aliases_git" ] && \. "$HOME/.aliases_git"
