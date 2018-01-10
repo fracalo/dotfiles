@@ -188,9 +188,8 @@ map <left> :bp<cr>
 map <up> <nop>
 map <down> <nop>
 
-" Map jk to jump out of Insert mode
-" " imap jk <ESC> - using caplock now
-
+" remap the digraph feature because currently it get overwritten by Ultisnips
+inoremap <C-d> <C-k>
 
 " Add paste shortcut
 nmap <leader>P "+p
@@ -270,6 +269,5 @@ let g:UltiSnipsSnippetsDirectories=['~/.vim/UltiSnips'] " lost
 let g:UltiSnipsExpandTrigger           = '<c-k>'
 let g:UltiSnipsJumpForwardTrigger      = '<c-k>'
 let g:UltiSnipsJumpBackwardTrigger     = '<s-c-k>'
-
 " }}} 
 
