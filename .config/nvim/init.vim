@@ -135,7 +135,7 @@ set autoread
 nnoremap <Space> <Nop>
 let mapleader = "\<Space>"
 
-" easy save file
+" easy save file 
 nmap <leader>w :w<cr>
 
 " To open a new empty buffer
@@ -270,4 +270,8 @@ let g:UltiSnipsExpandTrigger           = '<c-k>'
 let g:UltiSnipsJumpForwardTrigger      = '<c-k>'
 let g:UltiSnipsJumpBackwardTrigger     = '<s-c-k>'
 " }}} 
+
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+" and when we need to modify stuff as root..
+cmap w!! w !sudo tee > /dev/null %
 
