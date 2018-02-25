@@ -60,6 +60,9 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+# add aws cli...
+export PATH=~/.local/bin:$PATH
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -150,3 +153,6 @@ source "/home/frank/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
 
 # adding some git aliases
 [ -f "$HOME/.aliases_git" ] && \. "$HOME/.aliases_git"
+
+VISUAL="nvim"
+
