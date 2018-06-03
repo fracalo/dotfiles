@@ -148,6 +148,8 @@ spaceship_vi_mode_enable
 
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+#add a folder for custom scripts
+PATH="$HOME/bin:$PATH"
 
 source "/home/frank/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
 
