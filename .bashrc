@@ -140,3 +140,7 @@ fi
 
 
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# copy stuff to and from the xclip
+alias cclip='xclip -selection clipboard'
+alias clipp='xclip -selection clipboard -o'
