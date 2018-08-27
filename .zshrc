@@ -150,6 +150,9 @@ spaceship_vi_mode_enable
 
 #add a folder for custom scripts
 PATH="$HOME/bin:$PATH"
+#
+#add yarn global path
+PATH="$HOME/.yarn/bin:$PATH"
 
 source "/home/frank/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
 
