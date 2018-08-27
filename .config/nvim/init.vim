@@ -236,16 +236,21 @@ let g:airline_right_sep = ''
 let g:neomake_javascript_eslint_exe = $PWD .'/node_modules/.bin/eslint'
 let g:neomake_javascript_enabled_makers = ['eslint']
 
-let g:neomake_tscript_tslint_maker = $PWD .'/node_modules/.bin/tslint'
+
+" cannot use local tslint
+let g:neomake_typescript_tslint_exe = $PWD .'/node_modules/.bin/tslint'
+let g:neomake_typescript_enabled_makers = ['tslint']
 "let g:neomake_verbose=3    
 autocmd! BufWritePost * Neomake
 "}}}
+
 
 " set filetype for ts and use js syntax highlighting {{{
 autocmd BufNewFile,BufRead *.ts,*.tsx 
   \ set filetype=typescript |
   \ set syntax=javascript 
 " }}}
+
 " CtrlP settings {{{
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/](\.(git|hg|svn)|\_site|node_modules)$',
