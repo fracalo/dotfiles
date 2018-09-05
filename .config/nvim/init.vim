@@ -232,12 +232,24 @@ let g:airline_right_sep = ''
 "highlight link SyntasticStyleWarningSign SignColumn
 " }}}
 
-" neomake and eslint {{{  
-" let g:neomake_javascript_eslint_exe = $PWD .'/node_modules/.bin/eslint'
-" let g:neomake_verbose=3    
+"neomake and eslint/tslint {{{  
+let g:neomake_javascript_eslint_exe = $PWD .'/node_modules/.bin/eslint'
 let g:neomake_javascript_enabled_makers = ['eslint']
+
+
+" cannot use local tslint
+let g:neomake_typescript_tslint_exe = $PWD .'/node_modules/.bin/tslint'
+let g:neomake_typescript_enabled_makers = ['tslint']
+"let g:neomake_verbose=3    
 autocmd! BufWritePost * Neomake
 "}}}
+
+
+" set filetype for ts and use js syntax highlighting {{{
+autocmd BufNewFile,BufRead *.ts,*.tsx 
+  \ set filetype=typescript |
+  \ set syntax=javascript 
+" }}}
 
 " CtrlP settings {{{
 let g:ctrlp_custom_ignore = {
@@ -270,6 +282,7 @@ let g:UltiSnipsExpandTrigger           = '<c-k>'
 let g:UltiSnipsJumpForwardTrigger      = '<c-k>'
 let g:UltiSnipsJumpBackwardTrigger     = '<s-c-k>'
 " }}} 
+
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 " and when we need to modify stuff as root..
