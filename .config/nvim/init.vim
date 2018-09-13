@@ -16,6 +16,8 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'Valloric/YouCompleteMe'
   
   Plug 'hhsnopek/vim-sugarss'
+  " fof making dbqueries in vim
+  Plug 'vim-scripts/dbext.vim'
   " local ultisnips
   " Plug '/.vim/bundle/mysnips' " this is lost...
 
@@ -283,6 +285,10 @@ let g:UltiSnipsJumpForwardTrigger      = '<c-k>'
 let g:UltiSnipsJumpBackwardTrigger     = '<s-c-k>'
 " }}} 
 
+" dbext {{{
+     let g:dbext_default_profile_mySQL = 'type=MYSQL:user=root:passwd=xxxxxxxxx:dbname=mysql:host=xxxxxxxxxxxx:dbname=xxxxxxxxxxxx'
+
+" }}}
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 " and when we need to modify stuff as root..
