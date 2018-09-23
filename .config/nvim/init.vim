@@ -192,7 +192,6 @@ map <down> <nop>
 
 " remap the digraph feature because currently it get overwritten by Ultisnips
 inoremap <C-d> <C-k>
-
 " Add paste shortcut
 nmap <leader>P "+p
 
@@ -235,14 +234,14 @@ let g:airline_right_sep = ''
 " }}}
 
 "neomake and eslint/tslint {{{  
-let g:neomake_javascript_eslint_exe = $PWD .'/node_modules/.bin/eslint'
-let g:neomake_javascript_enabled_makers = ['eslint']
+"let g:neomake_javascript_eslint_exe = $PWD .'/node_modules/.bin/eslint'
+"let g:neomake_javascript_enabled_makers = ['eslint']
 
 
 " cannot use local tslint
-let g:neomake_typescript_tslint_exe = $PWD .'/node_modules/.bin/tslint'
-let g:neomake_typescript_enabled_makers = ['tslint']
-"let g:neomake_verbose=3    
+"let g:neomake_typescript_tslint_exe = $PWD .'/node_modules/.bin/tslint'
+"let g:neomake_typescript_enabled_makers = ['tslint']
+"let g:neomake_verbose=1    
 autocmd! BufWritePost * Neomake
 "}}}
 
@@ -286,7 +285,10 @@ let g:UltiSnipsJumpBackwardTrigger     = '<s-c-k>'
 " }}} 
 
 " dbext {{{
-     let g:dbext_default_profile_mySQL = 'type=MYSQL:user=root:passwd=xxxxxxxxx:dbname=mysql:host=xxxxxxxxxxxx:dbname=xxxxxxxxxxxx'
+if filereadable("dbext_config.vim")
+  source dbext_config.vim
+endif
+
 " }}}
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
