@@ -246,10 +246,12 @@ autocmd! BufWritePost * Neomake
 "}}}
 
 
-" set filetype for ts and use js syntax highlighting {{{
-autocmd BufNewFile,BufRead *.ts,*.tsx 
+" set filetype highlighting {{{
+autocmd BufNewFile,BufRead *.ts,*.tsx
   \ set filetype=typescript |
   \ set syntax=javascript 
+
+autocmd BufNewFile,BufRead *.vue set syntax=html
 " }}}
 
 " CtrlP settings {{{
@@ -294,4 +296,3 @@ endif
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 " and when we need to modify stuff as root..
 cmap w!! w !sudo tee > /dev/null %
-
