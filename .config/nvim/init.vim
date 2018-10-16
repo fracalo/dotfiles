@@ -287,8 +287,8 @@ let g:UltiSnipsJumpBackwardTrigger     = '<s-c-k>'
 " }}} 
 
 " dbext {{{
-if filereadable("dbext_config.vim")
-  source dbext_config.vim
+if filereadable(expand("~/.config/nvim/dbext_config.vim"))
+  source ~/.config/nvim/dbext_config.vim
 endif
 
 " }}}
@@ -296,3 +296,4 @@ endif
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 " and when we need to modify stuff as root..
 cmap w!! w !sudo tee > /dev/null %
+
