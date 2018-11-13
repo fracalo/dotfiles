@@ -252,6 +252,8 @@ autocmd BufNewFile,BufRead *.ts,*.tsx
   \ set syntax=javascript 
 
 autocmd BufNewFile,BufRead *.vue set syntax=html
+
+autocmd BufNewFile,BufRead *.bats set syntax=sh
 " }}}
 
 " CtrlP settings {{{
