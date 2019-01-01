@@ -16,8 +16,6 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'Valloric/YouCompleteMe'
   
   Plug 'hhsnopek/vim-sugarss'
-  " fof making dbqueries in vim
-  Plug 'vim-scripts/dbext.vim'
   " local ultisnips
   " Plug '/.vim/bundle/mysnips' " this is lost...
 
@@ -153,14 +151,6 @@ nmap <leader>bq :bp <BAR> bd #<CR>
 " Show all open buffers and their status
 nmap <leader>bl :ls<CR>
 
-" SpellCheck function turns on spell check
-function SpellCheck(loc)
-  echom "setting setlocal spell spelllang="
-  echom a:loc
-  execute "setlocal spell spelllang=" . a:loc
-endfunction
-
-
 " Show only selected in Visual Mode
 nmap <silent> <leader>th :cal ToggleSelected(0)<cr>
 vmap <silent> <leader>th :cal ToggleSelected(1)<cr>
@@ -200,6 +190,7 @@ map <down> <nop>
 
 " remap the digraph feature because currently it get overwritten by Ultisnips
 inoremap <C-d> <C-k>
+
 " Add paste shortcut
 nmap <leader>P "+p
 
@@ -257,14 +248,10 @@ autocmd! BufWritePost * Neomake
 "}}}
 
 
-" set filetype highlighting {{{
-autocmd BufNewFile,BufRead *.ts,*.tsx
+" set filetype for ts and use js syntax highlighting {{{
+autocmd BufNewFile,BufRead *.ts,*.tsx 
   \ set filetype=typescript |
   \ set syntax=javascript 
-
-autocmd BufNewFile,BufRead *.vue set syntax=html
-
-autocmd BufNewFile,BufRead *.bats set syntax=sh
 " }}}
 
 " CtrlP settings {{{
@@ -299,15 +286,8 @@ let g:UltiSnipsJumpForwardTrigger      = '<c-k>'
 let g:UltiSnipsJumpBackwardTrigger     = '<s-c-k>'
 " }}} 
 
-" dbext {{{
-if filereadable(expand("~/.config/nvim/dbext_config.vim"))
-  source ~/.config/nvim/dbext_config.vim
-endif
-
-" }}}
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 " and when we need to modify stuff as root..
 cmap w!! w !sudo tee > /dev/null %
-
 
