@@ -153,6 +153,14 @@ nmap <leader>bq :bp <BAR> bd #<CR>
 " Show all open buffers and their status
 nmap <leader>bl :ls<CR>
 
+" SpellCheck function turns on spell check
+function SpellCheck(loc)
+  echom "setting setlocal spell spelllang="
+  echom a:loc
+  execute "setlocal spell spelllang=" . a:loc
+endfunction
+
+
 " Show only selected in Visual Mode
 nmap <silent> <leader>th :cal ToggleSelected(0)<cr>
 vmap <silent> <leader>th :cal ToggleSelected(1)<cr>
@@ -298,4 +306,5 @@ endif
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 " and when we need to modify stuff as root..
 cmap w!! w !sudo tee > /dev/null %
+
 
