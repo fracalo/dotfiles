@@ -242,14 +242,17 @@ let g:airline_right_sep = ''
 " }}}
 
 "neomake and eslint/tslint {{{  
-"let g:neomake_javascript_eslint_exe = $PWD .'/node_modules/.bin/eslint'
-"let g:neomake_javascript_enabled_makers = ['eslint']
+"if you remove the hardcoded reference to the node_modules folder it falls
+" back to global (npm i -g eslint)
+let g:neomake_javascript_eslint_exe = $PWD .'/node_modules/.bin/eslint'
+let g:neomake_javascript_enabled_makers = ['eslint']
 
 
 " cannot use local tslint
 "let g:neomake_typescript_tslint_exe = $PWD .'/node_modules/.bin/tslint'
 "let g:neomake_typescript_enabled_makers = ['tslint']
-"let g:neomake_verbose=1    
+" you can switch this 1-3
+let g:neomake_verbose=1    
 autocmd! BufWritePost * Neomake
 "}}}
 
