@@ -258,7 +258,7 @@ autocmd BufNewFile,BufRead *.ts,*.tsx
   \ set syntax=javascript 
 " }}}
 
-" set filetype for ts and use js syntax highlighting {{{
+" set filetype for vue syntax highlighting {{{
 autocmd BufNewFile,BufRead *.vue 
   \ set filetype=vue |
   \ set syntax=html
@@ -296,6 +296,12 @@ let g:UltiSnipsJumpForwardTrigger      = '<c-k>'
 let g:UltiSnipsJumpBackwardTrigger     = '<s-c-k>'
 " }}} 
 
+" SpellCheck function turns on spell check
+function SpellCheck(loc)
+  echom "setting setlocal spell spelllang="
+  echom a:loc
+  execute "setlocal spell spelllang=" . a:loc
+endfunction
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 " and when we need to modify stuff as root..
