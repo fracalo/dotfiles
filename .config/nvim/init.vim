@@ -238,6 +238,10 @@ let g:airline_right_sep = ''
 let g:neomake_javascript_eslint_exe = $PWD .'/node_modules/.bin/eslint'
 let g:neomake_javascript_enabled_makers = ['eslint']
 
+" adding eslint as vue enabled maker
+let g:neomake_vue_eslint_exe = $PWD .'/node_modules/.bin/eslint'
+let g:neomake_vue_enabled_makers = ['eslint']
+
 
 " cannot use local tslint
 "let g:neomake_typescript_tslint_exe = $PWD .'/node_modules/.bin/tslint'
@@ -252,6 +256,12 @@ autocmd! BufWritePost * Neomake
 autocmd BufNewFile,BufRead *.ts,*.tsx 
   \ set filetype=typescript |
   \ set syntax=javascript 
+" }}}
+
+" set filetype for ts and use js syntax highlighting {{{
+autocmd BufNewFile,BufRead *.vue 
+  \ set filetype=vue |
+  \ set syntax=html
 " }}}
 
 " CtrlP settings {{{
