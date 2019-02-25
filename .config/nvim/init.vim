@@ -19,6 +19,9 @@ call plug#begin('~/.config/nvim/plugged')
   " local ultisnips
   " Plug '/.vim/bundle/mysnips' " this is lost...
 
+  Plug 'vim-scripts/dbext.vim'
+
+
 call plug#end()
 "}}}
 
@@ -295,6 +298,12 @@ let g:UltiSnipsExpandTrigger           = '<c-k>'
 let g:UltiSnipsJumpForwardTrigger      = '<c-k>'
 let g:UltiSnipsJumpBackwardTrigger     = '<s-c-k>'
 " }}} 
+
+" Dbext {
+if filereadable(expand("~/.config/nvim/dbext_config.vim"))
+  source ~/.config/nvim/dbext_config.vim
+endif
+" }
 
 " SpellCheck function turns on spell check
 function SpellCheck(loc)
