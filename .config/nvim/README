@@ -1,0 +1,21 @@
+my dotfiles
+
+
+`./all.sh` strives to run everything, but might not work :D
+
+You must enable truecolor in tmux for nvim theme to work correctly.
+In all.sh there is a check for that
+
+## nvim
+for packer to work it must be intalled from source inside the write path
+
+```
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+  pack/packer/start/packer.nvim
+```
+this will bootstrap packer
+
+
+
+
+
