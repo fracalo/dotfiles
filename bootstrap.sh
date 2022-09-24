@@ -8,15 +8,9 @@ backupdir="$backupdir_store/$(date '+%Y-%m-%d__%H_%M_%S')"
 function backupFileIfExists() {
     filename="$1"
     prevname="$HOME/$filename"
-    if [[ -L $prevname ]]; then
-        echo "$prevname was already a link"
-        rm -r $prevname
-        return
-    fi
-    if [ -d $prevname ] || [ -f $prevname ]; then
-        cp -Rf $prevname $backupdir
-        return
-    fi
+  
+    cp -RfL $prevname $backupdir 2>>/dev/null
+    #rm -r $prevname
 }
 
 function rotate {
@@ -32,14 +26,13 @@ function doIt() {
         find . -depth 1  | \
            xargs basename -a | \
            egrep -v '.git$' | \
-           grep -v 'all.sh' | \
-           grep -v 'brew.sh' | \
-           grep -v 'bootstrap.sh' | \
+           egrep -v '.*sh$' | \
            grep -v 'macos' | \
            grep -v 'README.md'
         ); do 
        backupFileIfExists $x 
-       cp -R $x $HOME
+       #cp -R $x $HOME
+       ln -Fs $(pwd)/$x $HOME
     done
 
     rotate # backups

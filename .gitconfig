@@ -190,3 +190,6 @@
 [init]
 
 	defaultBranch = main
+[user]
+	name = Francesco Calo
+	email = fcaloisme at gmail.com
