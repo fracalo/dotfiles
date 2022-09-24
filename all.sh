@@ -1,14 +1,15 @@
 
-
-./bootstrap.sh
+./brew_before.sh
+./bootstrap.sh -f
 
 # tmux plugin manager
 git clone --depth 1 https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # nvim packer
 git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.config/nvim/pack/packer/start/packer.nvim
 
-./brew.sh
+./brew_after.sh
 
+. ./macos
 
 
 #https://gist.github.com/XVilka/8346728

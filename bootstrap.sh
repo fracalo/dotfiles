@@ -2,22 +2,55 @@
 
 cd "$(dirname "${BASH_SOURCE}")";
 
-# git pull origin main;
+backupdir_store="$HOME/.dotfile_backups"
+backupdir="$backupdir_store/$(date '+%Y-%m-%d__%H_%M_%S')"
+
+function backupFileIfExists() {
+    filename="$1"
+    prevname="$HOME/$filename"
+    if [[ -L $prevname ]]; then
+        echo "$prevname was already a link"
+        rm -r $prevname
+        return
+    fi
+    if [ -d $prevname ] || [ -f $prevname ]; then
+        cp -Rf $prevname $backupdir
+        return
+    fi
+}
+
+function rotate {
+    files_to_delete=$(ls -1tr $backupdir_store | ghead -n -5)
+    for x in $files_to_delete; do
+        rm -rf $backupdir_store/$x
+    done
+}
 
 function doIt() {
-	rsync --exclude ".git/" \
-		--exclude ".DS_Store" \
-		--exclude "bootstrap.sh" \
-		--exclude "all.sh" \
-		--exclude "README.md" \
-		-avh --no-perms . ~;
-	source ~/.bash_profile;
+    mkdir -p $backupdir
+    for x in $(
+        find . -depth 1  | \
+           xargs basename -a | \
+           egrep -v '.git$' | \
+           grep -v 'all.sh' | \
+           grep -v 'brew.sh' | \
+           grep -v 'bootstrap.sh' | \
+           grep -v 'macos' | \
+           grep -v 'README.md'
+        ); do 
+       backupFileIfExists $x 
+       cp -R $x $HOME
+    done
+
+    rotate # backups
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
 	doIt;
 else
-	read -p "This script does stuff without any regards. Are you sure? (y/n) " -n 1;
+    echo "This script will remove all colliding files in $HOME,"
+    echo "proceeding a backup will be attempted at $backupdir." 
+	read -p "Are you sure? (y/n) " -n 1;
 	echo "";
 	if [[ $REPLY =~ ^[Yy]$ ]]; then
 		doIt;
