@@ -53,3 +53,5 @@ PATH="/usr/local/bin:$PATH"
 PATH="/opt/homebrew/bin:$PATH"
 # vim mode
 # set -o vi
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
