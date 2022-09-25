@@ -88,6 +88,7 @@ brew install fd
 brew install git
 brew install git-lfs
 brew install gs
+brew install fzf
 brew install imagemagick --with-webp
 brew install lua
 brew install lynx
