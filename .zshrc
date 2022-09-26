@@ -90,3 +90,5 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 
 eval "$(starship init zsh)"
 
+export GOPATH=~/go
+export PATH=$PATH:$GOPATH/bin

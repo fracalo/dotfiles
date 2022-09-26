@@ -91,6 +91,7 @@ brew install gs
 brew install fzf
 brew install imagemagick --with-webp
 brew install lua
+brew install lua-language-server
 brew install lynx
 brew install p7zip
 brew install php

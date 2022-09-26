@@ -1,6 +1,7 @@
 require('fracalo.set')
 require('fracalo.remaps')
 require('fracalo.packer')
+require('fracalo.lsp_cmp')
 
 local augroup = vim.api.nvim_create_augroup
 fracalo = augroup('fracalo', {})
@@ -17,8 +18,7 @@ require("gruvbox").setup({
 })
 vim.cmd([[colorscheme gruvbox]])
 
--- lsp
-require'lspconfig'.tsserver.setup {}
+
 -- vim.cmd([[highlight Normal guibg=none]])
 require'nvim-treesitter.configs'.setup {
     ensure_installed = {"lua", "typescript"},
@@ -88,3 +88,4 @@ require'treesitter-context'.setup{
     -- When separator is set, the context will only show up when there are at least 2 lines above cursorline.
     separator = nil,
 }
+
