@@ -28,7 +28,8 @@ function doIt() {
            egrep -v '.git$' | \
            egrep -v '.*sh$' | \
            grep -v 'macos' | \
-           grep -v 'README.md'
+           grep -v 'README.md' | \
+           grep -v 'junk'
         ); do 
        backupFileIfExists $x 
        #cp -R $x $HOME
