@@ -75,3 +75,6 @@ vnoremap('J:m ', "'>+1<cr>gv=gv")
 -- imap <M-BS> <esc>vBc
 -- imap <C-P> <up>
 -- imap <C-N> <down>
+--
+-- there is now a better way to do keymaps in lua (look at lsp_cmp.lua for examples
+

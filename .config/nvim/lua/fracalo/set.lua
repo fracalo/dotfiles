@@ -34,12 +34,12 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
 -- Don't pass messages to |ins-completion-menu|.
-vim.opt.shortmess:append("c")
+-- vim.opt.shortmess:append("c")
 vim.opt.colorcolumn = "90"
 
 vim.opt.shortmess= "atI"
 
--- additional conf in the directory where we open a project
+-- additional conf in the directory where we open a project (.nvimrc)
 vim.opt.exrc = true
 
 vim.opt.hidden = true
