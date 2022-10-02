@@ -33,4 +33,7 @@
 #### mv .zshrc back in proper position 
 
 #### starship prompt
-curl -sS https://starship.rs/install.sh | sh
+# curl -sS https://starship.rs/install.sh | sh
+
+#### install fzf
+# /opt/homebrew/opt/fzf/install
