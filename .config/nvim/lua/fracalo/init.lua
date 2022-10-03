@@ -3,20 +3,11 @@ require('fracalo.treesitter')
 require('fracalo.remaps')
 require('fracalo.packer')
 require('fracalo.lsp_cmp')
+require('fracalo.utils')
+require('fracalo.theme')
 
-local augroup = vim.api.nvim_create_augroup
-fracalo = augroup('fracalo', {})
-
-function R(name)
-    require("plenary.reload").reload_module(name)
-end
-
-vim.o.background = "dark"
-require("gruvbox").setup({
-    overrides = {
-        Signcolumn = {bg = "#3d3d3d"}
-    }
-})
-vim.cmd([[colorscheme gruvbox]])
+require('gitsigns').setup()
+-- local augroup = vim.api.nvim_create_augroup
+-- fracalo = augroup('fracalo', {})
 
 
