@@ -46,3 +46,9 @@ unset file;
 eval "$(starship init zsh)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+awsComlPath=$(which aws_completer)
+
+if [ -n "$awsComlPath" ]; then
+    complete -C "${HOMEBREW_PREFIX}/bin/aws_completer" aws
+fi
