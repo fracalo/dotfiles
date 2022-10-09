@@ -6,6 +6,8 @@ require('fracalo.lsp_cmp')
 require('fracalo.utils')
 require('fracalo.theme')
 
+require("telescope").load_extension "file_browser"
+
 require('gitsigns').setup()
 -- local augroup = vim.api.nvim_create_augroup
 -- fracalo = augroup('fracalo', {})

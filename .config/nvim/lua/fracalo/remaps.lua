@@ -72,3 +72,4 @@ nnoremap("<leader>s", function()
     telescopeBuiltIn.grep_string({ search = vim.fn.input("Grepping: >")})
 end);
 
+vim.keymap.set('n', 'nt', '<cmd>Telescope file_browser<cr>', {buffer = 0})
