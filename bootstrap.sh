@@ -10,11 +10,12 @@ function backupFileIfExists() {
     prevname="$HOME/$filename"
   
     cp -RfL $prevname $backupdir 2>>/dev/null
-    #rm -r $prevname
+    rm -r $prevname
 }
 
 function rotate {
-    files_to_delete=$(ls -1tr $backupdir_store | ghead -n -5)
+    #files_to_delete=$(ls -1tr $backupdir_store | ghead -n -5)
+    files_to_delete=$(ls -1tr $backupdir_store | head -n -5)
     for x in $files_to_delete; do
         rm -rf $backupdir_store/$x
     done
@@ -23,7 +24,7 @@ function rotate {
 function doIt() {
     mkdir -p $backupdir
     for x in $(
-        find . -depth 1  | \
+        find . -maxdepth 1 -mindepth 1  | \
            xargs basename -a | \
            egrep -v '.git$' | \
            egrep -v '.*sh$' | \
@@ -32,6 +33,7 @@ function doIt() {
            grep -v 'junk'
         ); do 
        backupFileIfExists $x 
+
        #cp -R $x $HOME
        ln -Fs $(pwd)/$x $HOME
     done

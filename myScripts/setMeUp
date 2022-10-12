@@ -1,0 +1,13 @@
+
+firstArg=$1
+
+if [[ $firstArg != noscreen ]]
+then
+  xrandr --output HDMI2 --mode 1920x1080 --scale 1.3x1.3 --panning 2496x1404+1920+0 --right-of eDP1
+fi
+
+
+# $HOME/.xmodmapscript
+xset r rate 250 60
+
+$HOME/bin/my-agent.zsh
