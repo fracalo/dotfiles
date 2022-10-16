@@ -37,7 +37,7 @@ return require("packer").startup(function()
     use('lewis6991/gitsigns.nvim')
 
 
-    use('L4MON4D3/LuaSnip')
+    use('L3MON4D3/LuaSnip')
     use('saadparwaiz1/cmp_luasnip')
     --use('hrsh7th/cmp-cmdline')
 end)

@@ -52,3 +52,8 @@ awsComlPath=$(which aws_completer)
 if [ -n "$awsComlPath" ]; then
     complete -C "${HOMEBREW_PREFIX}/bin/aws_completer" aws
 fi
+
+if [[ $(which kubectl) != *"not found"* ]]; then
+    source <(kubectl completion zsh)
+fi
+
