@@ -54,3 +54,8 @@ if [ -n "$awsComlPath" ]; then
 fi
 
 alias luamake=/luamake
+
+if [[ $(which kubectl) != *"not found"* ]]; then
+    source <(kubectl completion zsh)
+fi
+
