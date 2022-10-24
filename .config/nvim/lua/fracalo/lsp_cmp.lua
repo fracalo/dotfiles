@@ -2,7 +2,6 @@
 -- lsp
 -------------
 -- typescript
-require'lspconfig'.tsserver.setup {}
 
 -- local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
@@ -13,7 +12,7 @@ local on_attach = function (client, buf)
     vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, {buffer = 0})
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, {buffer = 0})
     vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, {buffer = 0})
-    vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, {buffer = 0})
+    vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, {buffer = 0, noremap=true})
     -- diagnostics
     vim.keymap.set('n', '<leader>df', vim.diagnostic.get_next, {buffer = 0})
     vim.keymap.set('n', '<leader>dp', vim.diagnostic.get_prev, {buffer = 0})
@@ -21,6 +20,10 @@ local on_attach = function (client, buf)
     vim.keymap.set('n', '<leader>dl', "<cmd>Telescope diagnostics<cr>", {buffer = 0})
     vim.keymap.set('n', 'gr', "<cmd>Telescope lsp_references<cr>", {buffer = 0})
 end
+
+require'lspconfig'.tsserver.setup {
+    on_attach = on_attach,
+}
 -------------
 -- lua
 require'lspconfig'.sumneko_lua.setup {

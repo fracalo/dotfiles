@@ -53,6 +53,8 @@ if [ -n "$awsComlPath" ]; then
     complete -C "${HOMEBREW_PREFIX}/bin/aws_completer" aws
 fi
 
+alias luamake=/luamake
+
 if [[ $(which kubectl) != *"not found"* ]]; then
     source <(kubectl completion zsh)
 fi
