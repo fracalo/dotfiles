@@ -50,7 +50,8 @@ eval "$(starship init zsh)"
 awsComlPath=$(which aws_completer)
 
 if [ -n "$awsComlPath" ]; then
-    complete -C "${HOMEBREW_PREFIX}/bin/aws_completer" aws
+    complete -C "/usr/local/bin/aws_completer" aws
+    #complete -C "${HOMEBREW_PREFIX}/bin/aws_completer" aws
 fi
 
 alias luamake=/luamake

@@ -106,7 +106,6 @@ brew install tree
 brew install tmux
 brew install vbindiff
 brew install vim
-brew install volta
 brew install zopfli
 
 # Remove outdated versions from the cellar.

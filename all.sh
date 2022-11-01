@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 ## ./brew.sh
+# switch back to zsh
 ## ./bootstrap.sh -f
 
 #### tmux plugin manager
@@ -9,7 +10,11 @@
 #### nvim packer inside the .config
 ## git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.config/nvim/pack/packer/start/packer.nvim
 
-## ./macos
+#### oh-myzsh
+#sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+#### mv .zshrc back in proper position 
+   
+# ./macos
 
 #### check support for truecolor
 #### https://gist.github.com/XVilka/8346728
@@ -28,9 +33,6 @@
 #     printf "\n";
 # }'
 
-#### oh-myzsh
-#sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-#### mv .zshrc back in proper position 
 
 #### starship prompt
 # curl -sS https://starship.rs/install.sh | sh

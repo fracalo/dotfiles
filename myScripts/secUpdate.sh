@@ -1,7 +1,12 @@
+#!env bash
+SecurityGroupRuleId=$1
+GroupId=$2
+port=$3
 
-SecurityGroupRuleId=''
-GroupId=''
-port=''
+echo "SecurityGroupRuleId $SecurityGroupRuleId"
+echo "GroupId $GroupId"
+echo "port $port"
+
 
 ip=($(curl https://httpbin.org/ip | jq '.origin' | tr -d '"'))
 
