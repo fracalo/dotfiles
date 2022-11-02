@@ -5,7 +5,7 @@
 
 -- local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-
+--
 local on_attach = function (client, buf)
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, {buffer = 0})
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {buffer = 0, desc = 'go to definition'})
@@ -40,6 +40,7 @@ require'lspconfig'.sumneko_lua.setup {
             workspace = {
                 -- Make the server aware of Neovim runtime files
                 library = vim.api.nvim_get_runtime_file("", true),
+                checkThirdParty = false,
             },
             -- Do not send telemetry data containing a randomized but unique identifier
             telemetry = {

@@ -39,5 +39,12 @@ return require("packer").startup(function()
 
     use('L3MON4D3/LuaSnip')
     use('saadparwaiz1/cmp_luasnip')
-    --use('hrsh7th/cmp-cmdline')
+    use('hrsh7th/cmp-cmdline')
+
+    use('mfussenegger/nvim-dap')
+    use('leoluz/nvim-dap-go')
+    use('rcarriga/nvim-dap-ui')
+    use('theHamsta/nvim-dap-virtual-text')
+    use('nvim-telescope/telescope-dap.nvim')
+
 end)
