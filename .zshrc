@@ -50,13 +50,16 @@ eval "$(starship init zsh)"
 awsComlPath=$(which aws_completer)
 
 if [ -n "$awsComlPath" ]; then
-    complete -C "/usr/local/bin/aws_completer" aws
-    #complete -C "${HOMEBREW_PREFIX}/bin/aws_completer" aws
+    # complete -C "/usr/local/bin/aws_completer" aws
+    complete -C "${HOMEBREW_PREFIX}/bin/aws_completer" aws
 fi
 
-alias luamake=/luamake
+# alias luamake=/luamake
 
 if [[ $(which kubectl) != *"not found"* ]]; then
     source <(kubectl completion zsh)
 fi
 
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform

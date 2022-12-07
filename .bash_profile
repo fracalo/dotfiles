@@ -55,3 +55,6 @@ PATH="/opt/homebrew/bin:$PATH"
 # set -o vi
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+
+complete -C /opt/homebrew/bin/terraform terraform
+. "$HOME/.cargo/env"
