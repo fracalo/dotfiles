@@ -57,7 +57,6 @@ nnoremap("<leader>(", ":nohlsearch<cr><cr>")
 -- imap <M-BS> <esc>vBc
 -- imap <C-P> <up>
 -- imap <C-N> <down>
-
 local telescopeBuiltIn = require("telescope.builtin")
 nnoremap("<C-W>", function()
 	telescopeBuiltIn.marks()
@@ -74,3 +73,9 @@ end);
 
 -- vim.keymap.set('n', 'nt', '<cmd>Telescope file_browser<cr>', {buffer = 0, noremap=true})
 nnoremap("<C-N>", "<cmd>Telescope file_browser<cr>")
+
+nnoremap("<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<cr>")
+
+vim.keymap.set("x", "K", ":move '<-2<CR>gv-gv", {silent = true })
+vim.keymap.set("x", "J", ":move '>+1<CR>gv-gv", {silent = true })
+
