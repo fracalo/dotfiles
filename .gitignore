@@ -14,3 +14,6 @@ Thumbs.db
 .Trashes
 
 .git
+
+.config/yarn/
+.config/nvim/pack/packer/

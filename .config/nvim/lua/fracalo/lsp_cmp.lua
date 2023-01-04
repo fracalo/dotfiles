@@ -24,6 +24,10 @@ end
 require'lspconfig'.tsserver.setup {
     on_attach = on_attach,
 }
+require'lspconfig'.astro.setup{
+    on_attach = on_attach,
+}
+
 -------------
 -- lua
 require'lspconfig'.sumneko_lua.setup {
