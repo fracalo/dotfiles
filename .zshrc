@@ -80,7 +80,3 @@ complete -o nospace -C /opt/homebrew/bin/terraform terraform
 ## <<< conda initialize <<<
 
 
-# pnpm
-export PNPM_HOME="/Users/francesco.calo/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-# pnpm end
