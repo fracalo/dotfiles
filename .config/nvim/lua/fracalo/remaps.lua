@@ -75,6 +75,8 @@ nnoremap("<C-N>", "<cmd>NvimTreeToggle<cr>")
 
 nnoremap("<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<cr>")
 
+nnoremap("<leader>f", vim.lsp.buf.format)
+
 vim.keymap.set("x", "K", ":move '<-2<CR>gv-gv", {silent = true })
 vim.keymap.set("x", "J", ":move '>+1<CR>gv-gv", {silent = true })
 
