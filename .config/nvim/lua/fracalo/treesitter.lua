@@ -1,7 +1,7 @@
 
 -- vim.cmd([[highlight Normal guibg=none]])
 require'nvim-treesitter.configs'.setup {
-    ensure_installed = {"lua", "typescript"},
+    ensure_installed = {"lua", "typescript", "rust", "toml"},
     sync_install = false,
     auto_install = true,
     highlight = {

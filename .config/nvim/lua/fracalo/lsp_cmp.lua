@@ -19,6 +19,7 @@ local on_attach = function (client, buf)
     -- telescope integrations
     vim.keymap.set('n', '<leader>dl', "<cmd>Telescope diagnostics<cr>", {buffer = 0})
     vim.keymap.set('n', 'gr', "<cmd>Telescope lsp_references<cr>", {buffer = 0})
+    vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, {buffer = 0})
 end
 
 require'lspconfig'.tsserver.setup {
@@ -28,9 +29,9 @@ require'lspconfig'.astro.setup{
     on_attach = on_attach,
 }
 
--------------
+------
 -- lua
-require'lspconfig'.sumneko_lua.setup {
+require'lspconfig'.lua_ls.setup {
     on_attach = on_attach,
     settings = {
         Lua = {
@@ -54,7 +55,7 @@ require'lspconfig'.sumneko_lua.setup {
     },
 }
 
--------------
+-----
 -- go
 require'lspconfig'.gopls.setup {
     on_attach = on_attach,
@@ -62,6 +63,29 @@ require'lspconfig'.gopls.setup {
 }
 
 
+-------
+-- rust
+require'lspconfig'.rust_analyzer.setup({
+    on_attach=on_attach,
+    settings = {
+        ["rust-analyzer"] = {
+            imports = {
+                granularity = {
+                    group = "module",
+                },
+                prefix = "self",
+            },
+            cargo = {
+                buildScripts = {
+                    enable = true,
+                },
+            },
+            procMacro = {
+                enable = true
+            },
+        }
+    }
+})
 
 
 -------------
@@ -104,4 +128,16 @@ cmp.setup.filetype('gitcommit', {
   }, {
     { name = 'buffer' },
   })
+})
+
+local null_ls = require("null-ls")
+
+null_ls.setup({
+    sources = {
+        null_ls.builtins.formatting.prettierd,
+        --.with({
+            --filetypes = { "typescript", "tsx", "html", "json", "yaml", "markdown" },
+        --}),
+        null_ls.builtins.diagnostics.eslint_d
+    },
 })
