@@ -73,6 +73,7 @@ end);
 
 nnoremap("<C-N>", "<cmd>NvimTreeToggle<cr>")
 
+-- git stuff
 nnoremap("<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<cr>")
 
 nnoremap("<leader>f", vim.lsp.buf.format)
