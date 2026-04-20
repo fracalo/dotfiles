@@ -1,0 +1,5 @@
+[custom.claude]
+command = "claude statusline"
+when = "test -n \"$CLAUDE_SESSION\""
+format = "[$output]($style) "
+style = "bold blue"
