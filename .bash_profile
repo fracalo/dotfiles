@@ -58,7 +58,3 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 
 complete -C /opt/homebrew/bin/terraform terraform
 . "$HOME/.cargo/env"
-
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/francesco.calo/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

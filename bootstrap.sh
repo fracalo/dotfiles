@@ -10,7 +10,7 @@ function backupFileIfExists() {
     prevname="$HOME/$filename"
   
     cp -RfL $prevname $backupdir 2>>/dev/null
-    rm -r $prevname
+    rm -ri $prevname
 }
 
 function rotate {
@@ -33,9 +33,7 @@ function doIt() {
            grep -v 'junk'
         ); do 
        backupFileIfExists $x 
-
-       #cp -R $x $HOME
-       ln -Fs $(pwd)/$x $HOME
+       ln -sfn "$(pwd)/$x" "$HOME/$x"
     done
 
     rotate # backups

@@ -8,7 +8,6 @@ export PATH=$PATH:~/bin
 export PATH=$PATH:~/Dependency/lua-language-server/bin
 export PATH=$PATH:~/.dotnet
 export PATH=$PATH:~/.dotnet/tools
-export PATH=$PATH:$(yarn global bin)
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -22,3 +21,13 @@ export PATH="$PNPM_HOME:$PATH"
 
 
 export PATH="/usr/local/anaconda3/bin:$PATH"
+
+# opencode
+export PATH=/Users/francesco.calo/.opencode/bin:$PATH
+
+export PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS"
+
+# rancher
+export PATH="$PATH:$HOME/.rd/bin"
+
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"

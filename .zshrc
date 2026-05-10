@@ -25,7 +25,13 @@ zstyle ':omz:update' mode reminder  # just remind me to update when it's time //
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
-plugins=(git colored-man-pages z ssh-agent tmux vi-mode)
+if ps -p $PPID | grep -q kitten; then
+  ZSH_TMUX_AUTOSTART=true
+  ZSH_TMUX_AUTOCONNECT=true
+  plugins=(git colored-man-pages z ssh-agent tmux vi-mode)
+else
+  plugins=(git colored-man-pages z ssh-agent vi-mode)
+fi
 
 source $ZSH/oh-my-zsh.sh
 
@@ -57,8 +63,8 @@ eval "$(starship init zsh)"
 awsComlPath=$(which aws_completer)
 
 if [ -n "$awsComlPath" ]; then
-    # complete -C "/usr/local/bin/aws_completer" aws
-    complete -C "${HOMEBREW_PREFIX}/bin/aws_completer" aws
+    complete -C "/usr/local/bin/aws_completer" aws
+    # complete -C "${HOMEBREW_PREFIX}/bin/aws_completer" aws
 fi
 
 # alias luamake=/luamake
@@ -91,15 +97,16 @@ complete -o nospace -C /opt/homebrew/bin/terraform terraform
 # Created by `pipx` on 2024-10-23 14:33:28
 export PATH="$PATH:/Users/francesco.calo/.local/bin"
 
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/francesco.calo/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/francesco.calo/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/francesco.calo/google-cloud-sdk/path.zsh.inc'; fi
 
-# opencode
-export PATH=/Users/francesco.calo/.opencode/bin:$PATH
-
-export PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS"
-# alias docker='podman'
+## opencode
+#export PATH=/Users/francesco.calo/.opencode/bin:$PATH
+#
+#export PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS"
+#
+## rancher
+#export PATH="$PATH:$HOME/.rd/bin"
+#
+#export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"

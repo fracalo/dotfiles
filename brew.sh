@@ -12,7 +12,7 @@ brew upgrade
 BREW_PREFIX=$(brew --prefix)
 
 # Install GNU core utilities (those that come with macOS are outdated).
-# Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
+echo   "Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`."
 brew install coreutils
 ln -s "${BREW_PREFIX}/bin/gsha256sum" "${BREW_PREFIX}/bin/sha256sum"
 
@@ -47,10 +47,6 @@ brew install gmp
 #more brew tools
 
 # Install font tools.
-brew tap bramstein/webfonttools
-brew install sfnt2woff
-brew install sfnt2woff-zopfli
-brew install woff2
 brew tap homebrew/cask-fonts
 brew install --cask font-hack-nerd-font
 
@@ -65,9 +61,7 @@ brew install dns2tcp
 brew install fcrackzip
 brew install foremost
 brew install hashpump
-brew install hydra
 brew install john
-brew install knock
 brew install netpbm
 brew install nmap
 brew install pngcheck
@@ -82,7 +76,6 @@ brew install xz
 
 # Install other useful binaries.
 brew install ack
-#brew install exiv2
 brew install fd
 brew install git
 brew install git-lfs
@@ -107,6 +100,7 @@ brew install tmux
 brew install vbindiff
 brew install vim
 brew install zopfli
+brew install ffmpeg
 
 # Remove outdated versions from the cellar.
 brew cleanup
