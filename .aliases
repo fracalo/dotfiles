@@ -144,3 +144,6 @@ alias path='echo -e ${PATH//:/\\n}'
 
 alias python='python3'
 alias abcdefghijklmnopqrstuvwxyz="echo 'you got it'"
+alias aic='ai-create-command'
+alias aio='ai-create-command --backend ollama --model qwen3:30b-a3b'
+

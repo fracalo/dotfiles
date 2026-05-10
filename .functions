@@ -169,3 +169,57 @@ function o() {
 function tre() {
 	tree -aC -I '.git|node_modules' --dirsfirst "$@" | less -FRNX;
 }
+
+function ai-create-command() {
+	local backend=claude model=""
+
+	while [[ $# -gt 0 ]]; do
+		case "$1" in
+			--backend|-b) backend="$2"; shift 2 ;;
+			--model|-m)   model="$2";   shift 2 ;;
+			--) shift; break ;;
+			-*) echo "Unknown option: $1" >&2; return 1 ;;
+			*)  break ;;
+		esac
+	done
+
+	if [[ $# -eq 0 ]]; then
+		echo "Usage: claude-create-command [--backend claude|ollama] [--model <name>] <request>" >&2
+		return 1
+	fi
+
+	local user_request="$*"
+
+	local system_prompt='You are a CLI specialist on macOS with Homebrew and standard Unix tools available.
+Given a user request, output EXACTLY two plain-text lines with no extra whitespace, no markdown, no backticks, no code fences:
+Line 1: one sentence describing what the command does
+Line 2: the raw shell command, ready to copy-paste'
+
+	local output
+	if [[ "$backend" == "claude" ]]; then
+		local claude_args=(--print --tools "" --no-session-persistence --system-prompt "$system_prompt")
+		[[ -n "$model" ]] && claude_args+=(--model "$model")
+		output=$(claude "${claude_args[@]}" "$user_request")
+	elif [[ "$backend" == "ollama" ]]; then
+		[[ -z "$model" ]] && model="llama3.2"
+		local payload
+		payload=$(jq -n \
+			--arg m "$model" \
+			--arg s "$system_prompt" \
+			--arg p "$user_request" \
+			'{model:$m, stream:false, system:$s, prompt:$p}')
+		output=$(curl -sf http://localhost:11434/api/generate \
+			-H 'Content-Type: application/json' \
+			-d "$payload" | jq -r '.response')
+	else
+		echo "Unknown backend: $backend (use 'claude' or 'ollama')" >&2
+		return 1
+	fi
+
+	local description command
+	description=$(echo "$output" | head -1)
+	command=$(echo "$output" | tail -1)
+
+	echo "$description"
+	print -z "$command"
+}
