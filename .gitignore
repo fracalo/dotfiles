@@ -17,3 +17,9 @@ Thumbs.db
 
 .config/yarn/
 .config/nvim/pack/packer/
+
+# Sensitive: AWS VPN credentials, VPN profiles, and logs
+.config/AWSVPNClient/
+
+# Sensitive: gh CLI auth (token stored in keychain, but exclude as a precaution)
+.config/gh/
