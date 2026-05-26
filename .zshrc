@@ -25,13 +25,7 @@ zstyle ':omz:update' mode reminder  # just remind me to update when it's time //
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
-if ps -p $PPID | grep -q kitten; then
-  ZSH_TMUX_AUTOSTART=true
-  ZSH_TMUX_AUTOCONNECT=true
-  plugins=(git colored-man-pages z ssh-agent tmux vi-mode)
-else
-  plugins=(git colored-man-pages z ssh-agent vi-mode)
-fi
+plugins=(git colored-man-pages z ssh-agent tmux vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -98,9 +92,6 @@ complete -o nospace -C /opt/homebrew/bin/terraform terraform
 export PATH="$PATH:/Users/francesco.calo/.local/bin"
 
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/francesco.calo/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/francesco.calo/google-cloud-sdk/path.zsh.inc'; fi
-
 ## opencode
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -115,3 +106,11 @@ export NVM_DIR="$HOME/.nvm"
 
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
+#
+#export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/francesco.calo/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/francesco.calo/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/francesco.calo/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/francesco.calo/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
