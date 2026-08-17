@@ -101,6 +101,7 @@ brew install vbindiff
 brew install vim
 brew install zopfli
 brew install ffmpeg
+brew install starship
 
 # Remove outdated versions from the cellar.
 brew cleanup

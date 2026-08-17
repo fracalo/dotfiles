@@ -102,11 +102,16 @@ export PATH="$PATH:/Users/francesco.calo/.local/bin"
 if [ -f '/Users/francesco.calo/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/francesco.calo/google-cloud-sdk/path.zsh.inc'; fi
 
 ## opencode
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 #export PATH=/Users/francesco.calo/.opencode/bin:$PATH
 #
 #export PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS"
 #
 ## rancher
 #export PATH="$PATH:$HOME/.rd/bin"
-#
-#export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
