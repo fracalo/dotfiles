@@ -28,3 +28,6 @@ reload_config = "prefix+r"
 resize_mode = "prefix+shift+r"  # moved off r to keep tmux reload
 
 close_tab = "prefix+/"          # tmux kill-window
+
+[ui.toast]
+delivery = "herdr"
